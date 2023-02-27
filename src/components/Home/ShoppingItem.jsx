@@ -12,13 +12,13 @@ function ShoppingItem({ product }) {
     return item.id === product.id;
   });
   return (
-    <div className="flex flex-col space-y-3 font-roboto cursor-pointer">
+    <div className="flex flex-col space-y-3 font-roboto">
       <div className="flex justify-center items-center h-[500px]">
         <img src={product.image} alt={product.id} className="w-[250px]" />
       </div>
       <div
-        className="line-clamp-1 text-2xl hover:text-gray-400"
-        onClick={() => navigate(`/${product.id}`)}
+        className="line-clamp-1 text-2xl cursor-pointer hover:text-gray-400"
+        onClick={() => navigate(`/products/${product.id}`)}
       >
         {product.title}
       </div>
