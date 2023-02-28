@@ -14,7 +14,7 @@ function ShoppingCart() {
   const navigate = useNavigate();
   const subtotal = parseFloat(
     cart.reduce((total, item) => {
-      return (total = total + item.price);
+      return (total = total + item.price*item.quantity);
     }, 0)
   );
   async function getItem() {
