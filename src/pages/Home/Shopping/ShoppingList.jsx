@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { productsSelector } from "../../../features/productsSlice";
+import { productsSelector } from "../../../redux/features/productsSlice";
 import ShoppingItem from "../../../components/Home/ShoppingItem";
 
 function ShoppingList({ currentCategory }) {

@@ -4,11 +4,15 @@ function ShoppingCategoriesSelectors({ currentCategory, setCurrentCategory }) {
   const [categories, setCategories] = useState([]);
 
   async function getCategories() {
-    const categories = await fetch(
-      "https://fakestoreapi.com/products/categories"
-    );
-    const categoriesJson = await categories.json();
-    setCategories(categoriesJson);
+    try {
+      const categories = await fetch(
+        "https://fakestoreapi.com/products/categories"
+      );
+      const categoriesJson = await categories.json();
+      setCategories(categoriesJson);
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   useEffect(() => {
@@ -17,7 +21,7 @@ function ShoppingCategoriesSelectors({ currentCategory, setCurrentCategory }) {
 
   return (
     <div className="flex justify-center items-center font-shan text-xl">
-      <div className="flex space-x-2">
+      <div className="flex flex-col md:flex-row md:space-x-2">
         <div
           className={
             currentCategory === "all"

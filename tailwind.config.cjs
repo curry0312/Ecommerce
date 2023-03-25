@@ -12,6 +12,10 @@ module.exports = {
       },
       colors:{
         "darkblue": "#131921"
+      },
+      transitionProperty: {
+        'height': 'height',
+        'spacing': 'margin, padding',
       }
     },
   },

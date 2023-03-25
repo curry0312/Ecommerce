@@ -1,37 +1,48 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { addToCart, cartSelector } from "../../features/cartSlice";
+import { addToCart, cartSelector } from "../../redux/features/cartSlice";
 import { formatter } from "../../util/currency";
 
 function Item() {
+  
   console.log("---------------render--------------------");
+  
   const [item, setItem] = useState({});
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
   const dispatch = useDispatch();
   const cart = useSelector(cartSelector);
+  
   const IsInCart = cart.find((item) => {
     return item.id === parseFloat(id);
   });
+
+ 
   async function getTargetIdItem() {
-    setLoading(true);
-    console.log("-----------Loading start!--------------");
-    console.log("----------Item setting start!------------");
-    const item = await fetch(`https://fakestoreapi.com/products/${id}`, {
-      method: "GET",
-    });
-    const itemJson = await item.json();
-    setItem(itemJson);
-    console.log("----------Item setting complete!------------");
-    setLoading(false);
-    console.log("----------Loading finish!------------");
+    try{
+      setLoading(true);
+      console.log("-----------Loading start!--------------");
+      console.log("----------Item fetching start!------------");
+      const item = await fetch(`https://fakestoreapi.com/products/${id}`, {
+        method: "GET",
+      });
+      const itemJson = await item.json();
+      setItem(itemJson);
+      console.log("----------Item fetching complete!------------");
+      setLoading(false);
+      console.log("----------Loading finish!------------");
+    }catch(error){
+      console.log(error)
+    }
   }
   useEffect(() => {
     getTargetIdItem();
   }, [id]);
-
-  console.log("item:", item,'type:', typeof item);
+  
+  useEffect(()=>{
+    console.log("item:", item,'type:', typeof item);
+  },[item])
   return (
     <div className="py-[100px] px-10">
       {loading === true ? (

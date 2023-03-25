@@ -8,3 +8,18 @@
     margin: 0;
     padding: 0;
 }
+
+@layer components {
+    .menu{
+        @apply px-10 fixed left-0 right-0 bg-slate-800 overflow-hidden z-30 md:hidden
+    }
+    .menu-open{
+        @apply h-screen
+    }
+    .menu-close{
+        @apply h-0
+    }
+    .menu-transition{
+        @apply transition-height duration-300 ease-in-out 
+    }
+}

@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { formatter } from "../../util/currency";
-import { addToCart, cartSelector } from "../../features/cartSlice";
+import { addToCart, cartSelector } from "../../redux/features/cartSlice";
 import { useNavigate } from "react-router-dom";
 
 function ShoppingItem({ product }) {

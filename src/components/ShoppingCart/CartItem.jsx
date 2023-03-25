@@ -1,6 +1,6 @@
 import { formatter } from "../../util/currency";
 import { useDispatch } from "react-redux";
-import { decreaseQunatity, increaseQunatity, removeFromCart } from "../../features/cartSlice";
+import { decreaseQunatity, increaseQunatity, removeFromCart } from "../../redux/features/cartSlice";
 
 function CartItem({ item }) {
   const dispatch = useDispatch();
@@ -8,13 +8,13 @@ function CartItem({ item }) {
     <div className="p-4">
       <div className="flex font-roboto">
         {/*Image*/}
-        <div className="basis-1/3 flex justify-center items-center h-[200px]">
-          <img src={item.image} alt={item.title} className="w-[40%] object-cover" />
+        <div className="basis-1/3 flex justify-center items-center h-[200px] p-2">
+          <img src={item.image} alt={item.title} className="w-[40%] min-w-[80px] object-cover" />
         </div>
         {/*Info*/}
-        <div className="basis-2/3 flex flex-col">
+        <div className="flex flex-col basis-2/3">
           <div>
-            <h2 className="text-2xl">{item.title}</h2>
+            <h2 className="text-md md:text-2xl">{item.title}</h2>
           </div>
           <div>
             <p>{formatter.format(item.price)}</p>

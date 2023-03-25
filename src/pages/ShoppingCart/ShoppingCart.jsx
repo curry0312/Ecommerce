@@ -3,8 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import ShoppingItem from "../../components/Home/ShoppingItem";
 import CartItem from "../../components/ShoppingCart/CartItem";
-import { cartSelector } from "../../features/cartSlice";
-import { productsSelector, setProducts } from "../../features/productsSlice";
+import { cartSelector } from "../../redux/features/cartSlice";
+import { productsSelector, setProducts } from "../../redux/features/productsSlice";
 import { formatter } from "../../util/currency";
 
 function ShoppingCart() {
@@ -27,9 +27,9 @@ function ShoppingCart() {
   }, []);
 
   return (
-    <div className="relative py-[85px] flex bg-gray-200 px-5">
+    <div className="relative px-5 py-[85px] flex flex-col gap-3 min-h-screen bg-gray-200 md:flex-row">
       {/*cartItem info*/}
-      <div className="basis-2/3 bg-white flex flex-col space-y-3 self-start min-h-[200px] p-4">
+      <div className="basis-2/3 bg-white flex flex-col space-y-3 min-h-[200px] p-4 md:self-start">
         <span className="text-3xl font-shan">Shopping cart:</span>
         {cart.length === 0 ? (
           <div className="p-5">
@@ -49,7 +49,7 @@ function ShoppingCart() {
       </div>
 
       {/*cartInfo*/}
-      <div className="px-5 basis-1/3 rounded-lg font-shan flex flex-col space-y-3">
+      <div className="basis-1/3 font-shan flex flex-col space-y-3">
         {/*Subtotal*/}
         <div className="bg-white p-5">
           <p>
@@ -62,14 +62,16 @@ function ShoppingCart() {
           </div>
         </div>
         {/*Other goods(show the product which doesn't in cart)*/}
-        <div className="bg-white p-5">
-          <div className="font-shan text-2xl">
-            <h2>Other products you may be interested in:</h2>
-          </div>
+        <div className="hidden bg-white p-5 md:block md:h-screen md:overflow-scroll">
           <div>
-            {products.map((product) => {
-              return <ShoppingItem key={product.id} product={product} />;
-            })}
+            <div className="font-shan text-2xl">
+              <h2>Other products you may be interested in:</h2>
+            </div>
+            <div>
+              {products.map((product) => {
+                return <ShoppingItem key={product.id} product={product} />;
+              })}
+            </div>
           </div>
         </div>
       </div>

@@ -55,11 +55,11 @@ function Banner() {
         })}
       </div>
       {/*Header*/}
-      <div className="absolute bottom-10 left-5 text-white font-shan text-3xl sm:text-[3rem] md:text-[4rem] xl:text-[5rem]">
+      <div className="absolute bottom-20 left-1/2 -translate-x-1/2 text-center text-white font-shan text-3xl sm:text-[3rem] md:text-[4rem] md:left-10 md:translate-x-0 xl:text-[5rem]">
         Welcome to my store
       </div>
       {/*Anchor link to shoppinglist*/}
-      <AnchorLink href="#shopping" className="flex justify-center items-center rounded-md bg-red-700 w-[80px] h-[80px] p-2 absolute right-5 bottom-5 cursor-pointer hover:scale-105">
+      <AnchorLink href="#shopping" className="flex justify-center items-center rounded-md bg-red-700 w-[50px] h-[50px] p-2 absolute right-1/2 translate-x-1/2 bottom-5 cursor-pointer hover:scale-105 md:w-[80px] md:h-[80px] md:absolute md:right-5 md:translate-x-0">
         <motion.div
           initial={{ y: "-10px" }}
           animate={{ y: "10px" }}
@@ -75,13 +75,13 @@ function Banner() {
       {/*Navigate button*/}
       <IconButton
         sx={{ position: "absolute", top: "50%", left: "0", color: "white" }}
-        onClick={() => navigatePrev()}
+        onClick={()=>navigatePrev()}
       >
         <NavigateBeforeIcon />
       </IconButton>
       <IconButton
         sx={{ position: "absolute", top: "50%", right: "0", color: "white" }}
-        onClick={() => navigateNext()}
+        onClick={()=>navigateNext()}
       >
         <NavigateNextIcon />
       </IconButton>

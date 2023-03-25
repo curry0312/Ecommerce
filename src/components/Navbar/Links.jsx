@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 function Links({to,icon,badgeContent}) {
   return (
-   <Link className='' to={to}>
+   <Link to={to}>
     <Badge badgeContent={badgeContent} color="primary" showZero={true}>
         {icon}
     </Badge>
