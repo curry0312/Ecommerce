@@ -13,7 +13,7 @@ function Navbar() {
         <div className="flex flex-grow justify-between items-center space-x-5">
           <Navbar_Logo />
           <Navbar_search />
-          {/* <Navbar_Links /> */}
+          <Navbar_Links />
           <Navbar_menu />
         </div>
       </nav>

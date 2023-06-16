@@ -8,7 +8,7 @@ const Navbar_Links = () => {
   const cart = useSelector(cartSelector);
   return (
     <div className="hidden md:flex space-x-3">
-      <Links to={"user/login"} icon={<PersonIcon sx={{ color: "white" }} />} />
+      {/* <Links to={"user/login"} icon={<PersonIcon sx={{ color: "white" }} />} /> */}
       <Links
         to={"shoppingcart"}
         icon={<ShoppingCartIcon sx={{ color: "white" }} />}
